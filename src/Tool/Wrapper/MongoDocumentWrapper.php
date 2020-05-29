@@ -133,4 +133,12 @@ class MongoDocumentWrapper extends AbstractWrapper
     {
         return $this->getMetadata()->isSingleValuedEmbed($field);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isEmbeddedCollectionAssociation($field)
+    {
+        return $this->getMetadata()->isCollectionValuedEmbed($field);
+    }
 }
