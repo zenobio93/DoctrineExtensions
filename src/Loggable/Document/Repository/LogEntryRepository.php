@@ -137,7 +137,10 @@ class LogEntryRepository extends DocumentRepository
                 $value = $this->fillEmbeddedDocument($value, $mapping);
             } elseif ($objectMeta->isSingleValuedAssociation($field)) {
                 $value = $value ? $this->dm->getReference($mapping['targetDocument'], $value) : null;
+            } elseif ($mapping['type'] == 'date') {
+                $value = new \DateTime($value);
             }
+
             $wrapped->setPropertyValue($field, $value);
             unset($fields[$field]);
         }

@@ -247,6 +247,11 @@ class LoggableListener extends MappedEventSubscriber
                     }
                 }
             }
+
+            if ($value instanceof \DateTime) {
+                $value = $value->format('c');
+            }
+
             $newValues[$field] = $value;
         }
 
