@@ -229,6 +229,12 @@ class LoggableListener extends MappedEventSubscriber
                 foreach ($value as $embedValue) {
                     $embedValues[] = $this->getObjectChangeSetData($ea, $embedValue, $logEntry);
                 }
+
+                $embedValues = array_filter($embedValues);
+                if (empty($embedValues)) {
+                    continue;
+                }
+
                 $value = $embedValues;
             }
 
