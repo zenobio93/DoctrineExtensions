@@ -230,16 +230,7 @@ class LoggableListener extends MappedEventSubscriber
                     $embedValues[] = $this->getObjectChangeSetData($ea, $embedValue, $logEntry);
                 }
 
-                if (empty($embedValues)) {
-                    $value = $embedValues;
-                } else {
-                    $embedValues = array_filter($embedValues);
-                    if (empty($embedValues)) {
-                        continue;
-                    }
-
-                    $value = $embedValues;
-                }
+                $value = $embedValues;
             }
 
             if ($meta->isSingleValuedAssociation($field) && $value) {
