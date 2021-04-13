@@ -124,10 +124,6 @@ class LogEntryRepository extends DocumentRepository
                 continue;
             }
 
-            if (is_array($value) && empty($value)) {
-                continue;
-            }
-
             $mapping = $objectMeta->getFieldMapping($field);
             // Fill the embedded document
             if ($wrapped->isEmbeddedCollectionAssociation($field)) {
